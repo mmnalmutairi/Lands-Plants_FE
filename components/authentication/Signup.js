@@ -17,7 +17,7 @@ const Signup = ({ navigation }) => {
 
   const handleSubmit = async () => {
     await authStore.signup(user, navigation);
-    // navigation.navigate("TripList");
+    navigation.navigate("PlantList");
   };
 
   return (
