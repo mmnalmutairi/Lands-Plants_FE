@@ -1,7 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { Text, View } from "react-native";
-import Tabs from "../Navigation/tabs";
 // ITEM IMPORT
 import PlantItem from "./PlantItem";
 // AUTHSTORE
@@ -26,7 +25,6 @@ const PlantList = () => {
     <>
       <View>
         <Text>PLANT LIST</Text>
-        <Tabs />
       </View>
     </>
   );
