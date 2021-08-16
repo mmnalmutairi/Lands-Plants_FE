@@ -1,8 +1,9 @@
 import React from "react";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import plantStore from "../stores/plantStore";
 import PlantItem from "./PlantItem";
-
+import authStore from "../stores/authStore";
 const Explore = () => {
   const FilteringPlants = () => {
     // Should filter the Plants according to the categories
@@ -13,9 +14,16 @@ const Explore = () => {
     //   <PlantItem plant={plant} key={plant.id} navigation={navigation} />
     // ));
   };
+  const handlePress = async () => {
+    await authStore.signout();
+    navigation.navigate("Home");
+  };
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={handlePress}>
+        <AntDesign name="logout" size={24} color="black" />
+      </TouchableOpacity>
       <View style={styles.header}></View>
       <View style={styles.footer}>
         <TouchableOpacity onPress={FilteringPlants}>
