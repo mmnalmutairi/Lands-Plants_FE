@@ -20,7 +20,7 @@ const Home = ({ navigation }) => {
         <Animatable.Image
           animation="bounceIn"
           duration={1500}
-          source={require("../assets/wp4323968.png")}
+          source={require("../assets/icon-veggies.png")}
           style={styles.logo}
           resizeMode={"stretch"}
         />
@@ -43,7 +43,7 @@ const Home = ({ navigation }) => {
   );
 };
 const { height } = Dimensions.get("screen");
-const height_logo = height * 0.7 * 0.4;
+const height_logo = height * 0.9 * 0.4;
 var styles = StyleSheet.create({
   container: {
     flex: 1,

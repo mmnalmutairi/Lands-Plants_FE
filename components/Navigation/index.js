@@ -5,14 +5,14 @@ import Home from "../Home";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 import Explore from "../plants/Explore";
-import PlantList from "../plants/PlantList";
+
 const Stack = createStackNavigator();
 
 const RootNavigator = () => {
   return (
     <>
       <Stack.Navigator
-        initialRouteName="Explore"
+        initialRouteName="Tabs"
         screenOptions={{
           headerStyle: { backgroundColor: "white" },
           headerColor: "transparent",
@@ -32,7 +32,7 @@ const RootNavigator = () => {
         <Stack.Screen
           name="Signup"
           component={Signup}
-          options={{ title: "Signup" }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Explore"

@@ -1,10 +1,12 @@
 import React from "react";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import plantStore from "../stores/plantStore";
-import PlantItem from "./PlantItem";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from "@react-navigation/core";
 import authStore from "../stores/authStore";
+
 const Explore = () => {
+  const navigation = useNavigation();
   const FilteringPlants = () => {
     // Should filter the Plants according to the categories
     // const filteredplant = plantStore.plants.filter(
@@ -21,57 +23,92 @@ const Explore = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={handlePress}>
-        <AntDesign name="logout" size={24} color="black" />
+      <TouchableOpacity
+        onPress={handlePress}
+        style={{
+          marginLeft: 390,
+          paddingTop: 60,
+          paddingBottom: 10,
+        }}
+      >
+        <AntDesign name="logout" size={24} color="white" />
       </TouchableOpacity>
-      <View style={styles.header}></View>
+      {/* <View style={styles.header}> */}
+      <View style={{ height: "30%", backgroundColor: "white" }}>
+        {/* Plants List according to categories */}
+      </View>
+      <View style={{ height: "45%", backgroundColor: "lightgray" }}>
+        {/* What to plant these days */}
+      </View>
+      {/* </View> */}
+
       <View style={styles.footer}>
         <TouchableOpacity onPress={FilteringPlants}>
           <Image
             source={require("../../assets/9f2a63d7fcf4f314800dd3f4f40c4a67.png")}
             resizeMode="contain"
             style={{
-              width: 60,
-              height: 60,
+              width: 80,
+              height: 80,
               tintColor: "red",
-              marginVertical: -30,
-              marginHorizontal: 10,
+              marginVertical: -40,
+              marginHorizontal: -10,
             }}
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={FilteringPlants}>
           <Image
-            source={require("../../assets/3823393.png")}
+            source={require("../../assets/Vegi.png")}
             resizeMode="contain"
             style={{
-              width: 70,
-              height: 70,
-              marginVertical: -34,
-              marginHorizontal: 100,
+              width: 80,
+              height: 80,
+              marginVertical: -40,
+              marginHorizontal: 70,
+              tintColor: "green",
             }}
           />
         </TouchableOpacity>
+        <TouchableOpacity>
+          <View
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              width: 70,
+              height: 70,
+              borderRadius: 35,
+              marginVertical: -80,
+              marginHorizontal: 160,
+              backgroundColor: "#00996D",
+            }}
+          >
+            <FontAwesome name="user-o" color="#FFFFFF" size={30} />
+          </View>
+        </TouchableOpacity>
+
         <TouchableOpacity onPress={FilteringPlants}>
           <Image
             source={require("../../assets/wheatIcon.png")}
             resizeMode="contain"
             style={{
-              width: 60,
-              height: 60,
-              marginVertical: -34,
-              marginHorizontal: 200,
+              width: 70,
+              height: 70,
+              marginLeft: 240,
+              marginTop: -39,
             }}
           />
         </TouchableOpacity>
+
         <TouchableOpacity onPress={FilteringPlants}>
           <Image
-            source={require("../../assets/Roses.png")}
+            source={require("../../assets/Flower.png")}
             resizeMode="contain"
             style={{
-              width: 60,
-              height: 60,
-              marginVertical: -31,
-              marginHorizontal: 300,
+              width: 80,
+              height: 80,
+              marginLeft: 305,
+              marginTop: -70,
+              tintColor: "pink",
             }}
           />
         </TouchableOpacity>
@@ -97,6 +134,7 @@ var styles = StyleSheet.create({
     borderTopRightRadius: 30,
     paddingVertical: 50,
     paddingHorizontal: 30,
+    marginTop: 37,
   },
 });
 export default Explore;
