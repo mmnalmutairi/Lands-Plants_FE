@@ -67,9 +67,13 @@ const Explore = () => {
     navigation.navigate("Home");
   };
 
+  const renderFruites = () => {
+    return <></>;
+  };
+
   const renderPlants = (item, index) => {
     return (
-      <View
+      <TouchableOpacity
         style={{
           alignItems: "center",
           justifyContent: "center",
@@ -102,7 +106,7 @@ const Explore = () => {
             {item.name}
           </Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
 
