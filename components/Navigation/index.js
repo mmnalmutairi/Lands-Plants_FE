@@ -12,7 +12,7 @@ const RootNavigator = () => {
   return (
     <>
       <Stack.Navigator
-        initialRouteName="Tabs"
+        initialRouteName="Home"
         screenOptions={{
           headerStyle: { backgroundColor: "white" },
           headerColor: "transparent",

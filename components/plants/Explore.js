@@ -141,9 +141,7 @@ const Explore = () => {
                 onPress={() => {
                   console.log("Focus on filteration");
                 }}
-              >
-                <Image />
-              </TouchableOpacity>
+              ></TouchableOpacity>
             </View>
             <View style={{ marginTop: 8 }}>
               <FlatList
@@ -157,8 +155,65 @@ const Explore = () => {
           </View>
         </View>
       </View>
-      <View style={{ height: "45%", backgroundColor: "#edf2f4" }}>
+      <View
+        style={{
+          height: "45%",
+          backgroundColor: "#edf2f4",
+          borderTopLeftRadius: 50,
+          borderTopRightRadius: 50,
+        }}
+      >
         {/* What to plant these days */}
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginTop: 10,
+          }}
+        >
+          <Text
+            style={{
+              color: "#00996D",
+              fontSize: 20,
+              fontWeight: "bold",
+              marginLeft: 10,
+            }}
+          >
+            What Can You Plant Today{" "}
+          </Text>
+        </View>
+        <View style={{ flexDirection: "row", height: "88%", marginTop: 8 }}>
+          <View style={{ flex: 1 }}>
+            <TouchableOpacity style={{ flex: 1, marginLeft: 5 }}>
+              <Image
+                source={require("../../assets/Apples.jpeg")}
+                resizeMode="cover"
+                style={{ width: "100%", height: "100%", borderRadius: 20 }}
+              />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{ flex: 1, marginTop: 10, marginLeft: 5 }}>
+              <Image
+                source={require("../../assets/Apples.jpeg")}
+                resizeMode="cover"
+                style={{ width: "100%", height: "100%", borderRadius: 20 }}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View style={{ flex: 1.3 }}>
+            <TouchableOpacity
+              style={{ flex: 1, marginLeft: 10, marginRight: 3 }}
+            >
+              <Image
+                source={require("../../assets/Cherries.jpeg")}
+                resizeMode="cover"
+                style={{ width: "100%", height: "100%", borderRadius: 20 }}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
       {/* </View> */}
 
