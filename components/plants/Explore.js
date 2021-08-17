@@ -74,6 +74,7 @@ const Explore = () => {
   const renderPlants = (item, index) => {
     return (
       <TouchableOpacity
+        onPress={() => navigation.navigate("PlantDetails")}
         style={{
           alignItems: "center",
           justifyContent: "center",
@@ -141,11 +142,6 @@ const Explore = () => {
               >
                 Plants
               </Text>
-              <TouchableOpacity
-                onPress={() => {
-                  console.log("Focus on filteration");
-                }}
-              ></TouchableOpacity>
             </View>
             <View style={{ marginTop: 8 }}>
               <FlatList
@@ -189,7 +185,10 @@ const Explore = () => {
         </View>
         <View style={{ flexDirection: "row", height: "88%", marginTop: 8 }}>
           <View style={{ flex: 1 }}>
-            <TouchableOpacity style={{ flex: 1, marginLeft: 5 }}>
+            <TouchableOpacity
+              style={{ flex: 1, marginLeft: 5 }}
+              onPress={() => navigation.navigate("PlantDetails")}
+            >
               <Image
                 source={require("../../assets/Apples.jpeg")}
                 resizeMode="cover"
@@ -197,7 +196,10 @@ const Explore = () => {
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ flex: 1, marginTop: 10, marginLeft: 5 }}>
+            <TouchableOpacity
+              style={{ flex: 1, marginTop: 10, marginLeft: 5 }}
+              onPress={() => navigation.navigate("PlantDetails")}
+            >
               <Image
                 source={require("../../assets/Apples.jpeg")}
                 resizeMode="cover"
@@ -208,6 +210,7 @@ const Explore = () => {
 
           <View style={{ flex: 1.3 }}>
             <TouchableOpacity
+              onPress={() => navigation.navigate("PlantDetails")}
               style={{ flex: 1, marginLeft: 10, marginRight: 3 }}
             >
               <Image
