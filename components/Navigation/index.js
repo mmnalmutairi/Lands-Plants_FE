@@ -5,7 +5,8 @@ import Home from "../Home";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 import Explore from "../plants/Explore";
-
+import Calendar1 from "../calendar/Calendar";
+import PlantDetails from "../plants/PlantDetails";
 const Stack = createStackNavigator();
 
 const RootNavigator = () => {
@@ -37,6 +38,16 @@ const RootNavigator = () => {
         <Stack.Screen
           name="Explore"
           component={Explore}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Calendar1"
+          component={Calendar1}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PlantDetails"
+          component={PlantDetails}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
