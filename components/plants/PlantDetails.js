@@ -1,13 +1,16 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Entypo from "react-native-vector-icons/Entypo";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-const PlantDetails = () => {
+import AntDesign from "react-native-vector-icons/AntDesign";
+import Ionicons from "react-native-vector-icons/Ionicons";
+
+const PlantDetails = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {/* PHOTO BANNER */}
-      <View style={{ height: "35%", backgroundColor: "red" }}>
+      <View style={{ height: "35%" }}>
         <Image
           source={require("../../assets/wp4323968.png")}
           resizeMode="cover"
@@ -16,6 +19,36 @@ const PlantDetails = () => {
             height: "100%",
           }}
         />
+        <View style={{ position: "absolute", top: 50, left: 24, right: 24 }}>
+          <View style={{ flex: 1 }}>
+            <TouchableOpacity
+              style={{
+                width: 40,
+                height: 40,
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "rgba(255,255,255,0.5)",
+                borderRadius: 20,
+              }}
+              onPress={() => navigation.navigate("Explore")}
+            >
+              <Ionicons name="chevron-back" color="white" size={30} />
+            </TouchableOpacity>
+          </View>
+          <View style={{ flexDirection: "row", marginTop: "10%" }}>
+            <View style={{ flex: 1 }}>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 50,
+                  fontWeight: "bold",
+                }}
+              >
+                Coriander Leaves
+              </Text>
+            </View>
+          </View>
+        </View>
       </View>
 
       {/* REQUIRMENTS */}
@@ -62,7 +95,7 @@ const PlantDetails = () => {
                 borderColor: "gray",
               }}
             >
-              <FontAwesome name="sun-o" color="#606d87" size={30} />
+              <FontAwesome name="sun-o" color="#adb5bd" size={30} />
             </View>
           </View>
           {/* ********************* BAR ********************* */}
@@ -208,6 +241,205 @@ const PlantDetails = () => {
               backgroundColor: "#00996D",
             }}
           ></View>
+        </View>
+        {/* ******************* RENDER REQUIREMENTS **************** */}
+        <View
+          style={{
+            flex: 2.5,
+            marginTop: 24,
+            paddingHorizontal: 24,
+            paddingVertical: 50,
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flexDirection: "row" }}>
+            <View
+              style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
+            >
+              {/* ************************************* */}
+              <View style={{ marginLeft: 9 }}>
+                <FontAwesome name="sun-o" color="#adb5bd" size={30} />
+              </View>
+              <Text
+                style={{
+                  marginLeft: 8,
+                  color: "#606d87",
+                  fontSize: 22,
+                  fontWeight: "bold",
+                }}
+              >
+                {" "}
+                Sunlight
+              </Text>
+            </View>
+            <Text
+              style={{
+                color: "#adb5bd",
+                fontWeight: "bold",
+                fontSize: 22,
+              }}
+            >
+              15C
+            </Text>
+          </View>
+
+          {/* ************************************* */}
+
+          <View style={{ flexDirection: "row" }}>
+            <View
+              style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
+            >
+              <View style={{ marginLeft: 9 }}>
+                <Entypo name="water" color="#606d87" size={30} />
+              </View>
+              <Text
+                style={{
+                  marginLeft: 8,
+                  color: "#606d87",
+                  fontSize: 22,
+                  fontWeight: "bold",
+                }}
+              >
+                {" "}
+                Water
+              </Text>
+            </View>
+            <Text
+              style={{
+                color: "#adb5bd",
+                fontWeight: "bold",
+                fontSize: 22,
+              }}
+            >
+              250 ML Daily
+            </Text>
+          </View>
+
+          {/* ************************************* */}
+
+          {/* ************************************* */}
+
+          <View style={{ flexDirection: "row" }}>
+            <View
+              style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
+            >
+              <View style={{ marginLeft: 9 }}>
+                <FontAwesome5
+                  name="temperature-low"
+                  color="#606d87"
+                  size={30}
+                />
+              </View>
+              <Text
+                style={{
+                  marginLeft: 8,
+                  color: "#606d87",
+                  fontSize: 22,
+                  fontWeight: "bold",
+                }}
+              >
+                {" "}
+                Temperature
+              </Text>
+            </View>
+            <Text
+              style={{
+                color: "#adb5bd",
+                fontWeight: "bold",
+                fontSize: 22,
+              }}
+            >
+              25C
+            </Text>
+          </View>
+
+          {/* ************************************* */}
+
+          {/* ************************************* */}
+
+          <View style={{ flexDirection: "row" }}>
+            <View
+              style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
+            >
+              <View style={{ marginLeft: 9 }}>
+                <FontAwesome5 name="seedling" color="#606d87" size={30} />
+              </View>
+              <Text
+                style={{
+                  marginLeft: 8,
+                  color: "#606d87",
+                  fontSize: 22,
+                  fontWeight: "bold",
+                }}
+              >
+                {" "}
+                Soil
+              </Text>
+            </View>
+            <Text
+              style={{
+                color: "#adb5bd",
+                fontWeight: "bold",
+                fontSize: 22,
+              }}
+            >
+              Ting Soil Mix
+            </Text>
+          </View>
+
+          {/* ************************************* */}
+        </View>
+
+        {/* *********************** ACTION BUTTON ************************ */}
+        <View style={{ flex: 1, flexDirection: "row", paddingVertical: 24 }}>
+          <TouchableOpacity
+            style={{
+              width: "50%",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              borderTopRightRadius: 30,
+              borderBottomRightRadius: 30,
+              backgroundColor: "#00996D",
+            }}
+            onPress={() => navigation.navigate("Calendar1")}
+          >
+            <Text
+              style={{
+                color: "white",
+                fontSize: 22,
+                fontWeight: "bold",
+                paddingRight: 3,
+              }}
+            >
+              Take Action
+            </Text>
+            <FontAwesome name="chevron-right" color="white" size={25} />
+          </TouchableOpacity>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Text
+              style={{
+                flex: 1,
+                color: "#606d87",
+                fontSize: 16,
+                fontWeight: "bold",
+                marginLeft: 20,
+                alignContent: "center",
+              }}
+            >
+              Almost 2 weeks of growing time
+            </Text>
+            <View style={{ marginRight: 20 }}>
+              <AntDesign name="arrowdown" color="#adb5bd" size={25} />
+            </View>
+          </View>
         </View>
       </View>
     </View>
