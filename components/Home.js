@@ -12,7 +12,7 @@ import * as Animatable from "react-native-animatable";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 const Home = ({ navigation }) => {
-  console.log(authStore.user);
+  console.log(authStore.user); //remove the log
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
