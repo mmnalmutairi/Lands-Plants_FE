@@ -12,69 +12,51 @@ import { AntDesign } from "@expo/vector-icons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/core";
 import authStore from "../stores/authStore";
+import plantStore from "../stores/plantStore";
+import PlantItem from "./PlantItem";
+import categoryStore from "../stores/categoryStore";
 
 const Explore = () => {
   const navigation = useNavigation();
-  const [plants, setPlants] = useState([
-    {
-      id: 0,
-      name: "Apples",
-      image: require("../../assets/Apples.jpeg"),
-      categoryId: 1,
-    },
+  const [category, setCategory] = useState([
     {
       id: 1,
-      name: "Banana's",
-      image: require("../../assets/Banana.jpeg"),
-      categoryId: 1,
+      name: "Fruits",
     },
     {
       id: 2,
-      name: "Cherries",
-      image: require("../../assets/Cherries.jpeg"),
-      categoryId: 1,
+      name: "Vegetables",
     },
     {
-      id: 3,
-      name: "Coriander",
-      image: require("../../assets/Coriander.jpeg"),
-      categoryId: 2,
+      id: 1,
+      name: "Grains",
     },
     {
-      id: 4,
-      name: "Oranges",
-      image: require("../../assets/Oranges.jpeg"),
-      categoryId: 1,
-    },
-    {
-      id: 5,
-      name: "Watermelon",
-      image: require("../../assets/Watermelon.jpeg"),
-      categoryId: 1,
+      id: 1,
+      name: "Flowers",
     },
   ]);
+
   const FilteringPlants = () => {
     // Should filter the Plants according to the categories
     // const filteredplant = plantStore.plants.filter(
-    //   (plant) => plant.categoryId === categoryStore.category.id
+    //   (plant) => plant.categoryId === categoryStore.categories.id
     // );
     // const plantList = filteredplant.map((plant) => (
     //   <PlantItem plant={plant} key={plant.id} navigation={navigation} />
     // ));
+    // return plantList;
   };
+
   const handlePress = async () => {
     await authStore.signout();
     navigation.navigate("Home");
   };
 
-  const renderFruites = () => {
-    return <></>;
-  };
-
   const renderPlants = (item, index) => {
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate("PlantDetails")}
+        onPress={() => navigation.navigate("PlantDetails", { item: item })}
         style={{
           alignItems: "center",
           justifyContent: "center",
@@ -83,7 +65,7 @@ const Explore = () => {
         }}
       >
         <Image
-          source={item.image}
+          source={{ uri: item.image }}
           resizeMode="cover"
           style={{
             width: width * 0.31,
@@ -144,12 +126,15 @@ const Explore = () => {
               </Text>
             </View>
             <View style={{ marginTop: 8 }}>
+              <View></View>
               <FlatList
                 horizontal
                 showsHorizontalScrollIndicator={false}
-                data={plants}
+                data={plantStore.plants}
                 keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item, index }) => renderPlants(item, index)}
+                renderItem={({ item, index }) => (
+                  <PlantItem item={item} key={index} navigation={navigation} />
+                )}
               />
             </View>
           </View>
@@ -190,7 +175,7 @@ const Explore = () => {
               onPress={() => navigation.navigate("PlantDetails")}
             >
               <Image
-                source={require("../../assets/Apples.jpeg")}
+                source={require("../../assets/Peach.jpeg")}
                 resizeMode="cover"
                 style={{ width: "100%", height: "100%", borderRadius: 20 }}
               />
@@ -201,7 +186,7 @@ const Explore = () => {
               onPress={() => navigation.navigate("PlantDetails")}
             >
               <Image
-                source={require("../../assets/Apples.jpeg")}
+                source={require("../../assets/Mango.jpeg")}
                 resizeMode="cover"
                 style={{ width: "100%", height: "100%", borderRadius: 20 }}
               />
@@ -214,7 +199,7 @@ const Explore = () => {
               style={{ flex: 1, marginLeft: 10, marginRight: 3 }}
             >
               <Image
-                source={require("../../assets/Cherries.jpeg")}
+                source={require("../../assets/Palm.jpeg")}
                 resizeMode="cover"
                 style={{ width: "100%", height: "100%", borderRadius: 20 }}
               />
@@ -251,7 +236,7 @@ const Explore = () => {
             }}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("MyPlants")}>
           <View
             style={{
               alignItems: "center",

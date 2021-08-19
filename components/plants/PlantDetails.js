@@ -5,14 +5,16 @@ import Entypo from "react-native-vector-icons/Entypo";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { observer } from "mobx-react";
 
-const PlantDetails = ({ navigation }) => {
+const PlantDetails = ({ navigation, route }) => {
+  const { item } = route.params;
   return (
     <View style={styles.container}>
       {/* PHOTO BANNER */}
       <View style={{ height: "35%" }}>
         <Image
-          source={require("../../assets/wp4323968.png")}
+          source={{ uri: item.image }}
           resizeMode="cover"
           style={{
             width: "100%",
@@ -44,7 +46,7 @@ const PlantDetails = ({ navigation }) => {
                   fontWeight: "bold",
                 }}
               >
-                Coriander Leaves
+                {item.name}
               </Text>
             </View>
           </View>
@@ -451,4 +453,4 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-export default PlantDetails;
+export default observer(PlantDetails);
