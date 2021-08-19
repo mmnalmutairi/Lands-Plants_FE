@@ -5,8 +5,9 @@ import Home from "../Home";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 import Explore from "../plants/Explore";
-import Calendar1 from "../calendar/Calendar";
 import PlantDetails from "../plants/PlantDetails";
+import MyPlants from "../plants/myplants/MyPlants";
+import Calendar1 from "../calendar/Calendar";
 const Stack = createStackNavigator();
 
 const RootNavigator = () => {
@@ -48,6 +49,17 @@ const RootNavigator = () => {
         <Stack.Screen
           name="PlantDetails"
           component={PlantDetails}
+          options={({ route }) => {
+            const { item } = route.params;
+            return {
+              title: item.name,
+              headerShown: false,
+            };
+          }}
+        />
+        <Stack.Screen
+          name="MyPlants"
+          component={MyPlants}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
