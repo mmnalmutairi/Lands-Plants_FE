@@ -59,6 +59,7 @@ const Signin = ({ navigation }) => {
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+          {/** inline styling ewww, you already have the stylesheet right ? so all the styling should be there no inline styling please */}
           <View
             style={[
               styles.button,

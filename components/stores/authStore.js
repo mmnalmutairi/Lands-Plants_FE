@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; //no need
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { makeAutoObservable } from "mobx";
 import instance from "./instance";
@@ -24,6 +24,7 @@ class AuthStore {
   signin = async (userData, navigation) => {
     try {
       const res = await instance.post("/signin", userData);
+      // you are sending navigation to the steUser function right? check the function I can't see that it recieve the navigation?
       await this.setUser(res.data.token, navigation);
     } catch (error) {
       console.log(error);
@@ -35,6 +36,7 @@ class AuthStore {
     // this.user = null;
   };
 
+  //So if you want to navigate to Explore page after signing up or in, you can do the navigation here
   setUser = async (token) => {
     await AsyncStorage.setItem("myToken", token);
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;

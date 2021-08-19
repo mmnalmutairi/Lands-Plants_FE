@@ -13,8 +13,10 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/core";
 import authStore from "../stores/authStore";
 
+//you need to refactor this component into a smaller components its +300 lines! 🤯
 const Explore = () => {
   const navigation = useNavigation();
+  // you will remove this right? because you will fetch the data from the backend!
   const [plants, setPlants] = useState([
     {
       id: 0,
@@ -66,13 +68,14 @@ const Explore = () => {
     await authStore.signout();
     navigation.navigate("Home");
   };
-
+  //remove it since you are not using it
   const renderFruites = () => {
     return <></>;
   };
 
   const renderPlants = (item, index) => {
     return (
+      //please no inline styling use styleSheet or styled-components
       <TouchableOpacity
         onPress={() => navigation.navigate("PlantDetails")}
         style={{
