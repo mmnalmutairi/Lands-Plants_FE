@@ -17,7 +17,7 @@ class CategoryStore {
       this.categories = response.data;
       this.isLoading = false;
     } catch (error) {
-      console.error("fcategoryFetch: ", error);
+      console.error("categoryFetch: ", error);
     }
   };
 }

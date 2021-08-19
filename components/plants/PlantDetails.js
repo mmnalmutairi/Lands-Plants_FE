@@ -281,7 +281,7 @@ const PlantDetails = ({ navigation, route }) => {
                 fontSize: 22,
               }}
             >
-              15C
+              {item.sunLight} C
             </Text>
           </View>
 
@@ -313,7 +313,7 @@ const PlantDetails = ({ navigation, route }) => {
                 fontSize: 22,
               }}
             >
-              250 ML Daily
+              {item.water} ML Daily
             </Text>
           </View>
 
@@ -351,7 +351,7 @@ const PlantDetails = ({ navigation, route }) => {
                 fontSize: 22,
               }}
             >
-              25C
+              {item.temperature}C
             </Text>
           </View>
 
@@ -385,7 +385,7 @@ const PlantDetails = ({ navigation, route }) => {
                 fontSize: 22,
               }}
             >
-              Ting Soil Mix
+              {item.soilType}
             </Text>
           </View>
 
@@ -436,7 +436,7 @@ const PlantDetails = ({ navigation, route }) => {
                 alignContent: "center",
               }}
             >
-              Almost 2 weeks of growing time
+              {item.growthPeriod}
             </Text>
             <View style={{ marginRight: 20 }}>
               <AntDesign name="arrowdown" color="#adb5bd" size={25} />

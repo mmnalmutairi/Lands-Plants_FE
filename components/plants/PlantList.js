@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { Text, View } from "react-native";
+import { Text, FlatList } from "react-native";
 // ITEM IMPORT
 import PlantItem from "./PlantItem";
 // AUTHSTORE
@@ -10,23 +10,19 @@ import plantStore from "../stores/plantStore";
 
 // ANIMATED
 
-const PlantList = () => {
+const PlantList = ({ plants, navigation }) => {
   if (plantStore.isLoading) return <Text> Loading... </Text>;
 
-  // const tripListFiltered = tripStore.trips.filter(
-  //   (trip) => trip.userId !== authStore.user.id
-  // );
-
-  // const tripList = tripListFiltered.map((trip) => (
-  //   <TripItem trip={trip} key={trip.id} navigation={navigation} />
-  // ));
-
   return (
-    <>
-      <View>
-        <Text>PLANT LIST</Text>
-      </View>
-    </>
+    <FlatList
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      data={plants}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={({ item, index }) => (
+        <PlantItem item={item} key={index} navigation={navigation} />
+      )}
+    />
   );
 };
 export default observer(PlantList);
