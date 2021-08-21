@@ -6,7 +6,7 @@ import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 import Explore from "../plants/Explore";
 import PlantDetails from "../plants/PlantDetails";
-import MyPlants from "../plants/myplants/MyPlants";
+import MyPlantsList from "../myplants/MyPlantsList";
 import Calendar1 from "../calendar/Calendar";
 const Stack = createStackNavigator();
 
@@ -58,8 +58,8 @@ const RootNavigator = () => {
           }}
         />
         <Stack.Screen
-          name="MyPlants"
-          component={MyPlants}
+          name="MyPlantsList"
+          component={MyPlantsList}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

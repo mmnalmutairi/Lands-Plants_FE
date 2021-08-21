@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { useNavigation } from "@react-navigation/core";
 
 // ************* Import Stores *************
@@ -206,7 +206,7 @@ const Explore = () => {
             </Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("MyPlants")}>
+        <TouchableOpacity onPress={() => navigation.navigate("MyPlantsList")}>
           <View
             style={{
               alignItems: "center",
@@ -219,7 +219,7 @@ const Explore = () => {
               backgroundColor: "#00996D",
             }}
           >
-            <FontAwesome name="user-o" color="#FFFFFF" size={30} />
+            <FontAwesome5 name="seedling" color="white" size={30} />
           </View>
         </TouchableOpacity>
 

@@ -1,14 +1,32 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Entypo from "react-native-vector-icons/Entypo";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { observer } from "mobx-react";
+import myPlantStore from "../stores/myPlantStore";
 
 const PlantDetails = ({ navigation, route }) => {
   const { item } = route.params;
+  const handleAdd = async () => {
+    const newItem = { plantId: item.id };
+    // console.log(newItem);
+    await myPlantStore.AddItemToSchedule(newItem);
+    Alert.alert(
+      "One more plant ",
+      `${item.name} has been add to your GARDEN !`
+    );
+    navigation.navigate("Explore");
+  };
   return (
     <View style={styles.container}>
       {/* PHOTO BANNER */}
@@ -404,7 +422,7 @@ const PlantDetails = ({ navigation, route }) => {
               borderBottomRightRadius: 30,
               backgroundColor: "#00996D",
             }}
-            onPress={() => navigation.navigate("Calendar1")}
+            onPress={() => handleAdd()}
           >
             <Text
               style={{

@@ -19,6 +19,10 @@ class PlantStore {
       console.error("fetchTrips: ", error);
     }
   };
+
+  getPlantById = (plantId) => {
+    return this.plants.find((plant) => plant.id === plantId);
+  };
 }
 
 const plantStore = new PlantStore();

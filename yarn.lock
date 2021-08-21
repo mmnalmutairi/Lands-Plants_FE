@@ -1436,7 +1436,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@react-native-async-storage/async-storage@~1.15.0":
+"@react-native-async-storage/async-storage@^1.15.6":
   version "1.15.6"
   resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.15.6.tgz#a4fd461d2d891326e006d2284d060229f6c2b328"
   integrity sha512-kVfy6O5Xbce9GfD9Islxn5JaOczNz6dF3Ce/7tP4foVLPNwo7UfdgXeKZ7iac07ZbvDvViSUuNyzzrN81FgqkQ==
@@ -5779,6 +5779,11 @@ react-native-month@1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/react-native-month/-/react-native-month-1.0.5.tgz#d39ad8d08485f03c21fb12bac818093120f3ee38"
   integrity sha512-uWpCaxARPY0hSqz+Aty0Xk04wnCUEy4JhgieaL03wi7aTse4Bvt4+B7jWxREGC/ibDip40ZLeBqwXcVHGWgYbA==
+
+react-native-push-notification@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-8.0.0.tgz#0dcdcaf467271aa4e37b6e0550d72fb051137d74"
+  integrity sha512-k9wEjpxtl0rEVNKG9ONinw45Ox5To4XsBo5Sc7AKXV0c26YHtz+Wn+Lz2B5y1zf5yu7CMt51nGnycukLt170Fg==
 
 react-native-safe-area-context@3.2.0:
   version "3.2.0"
