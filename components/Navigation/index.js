@@ -8,6 +8,8 @@ import Explore from "../plants/Explore";
 import PlantDetails from "../plants/PlantDetails";
 import MyPlantsList from "../myplants/MyPlantsList";
 import Calendar1 from "../calendar/Calendar";
+// import ModalPopUp from "../modals/ModalPopUp";
+import schedule from "../plants/schedule";
 const Stack = createStackNavigator();
 
 const RootNavigator = () => {
@@ -60,6 +62,16 @@ const RootNavigator = () => {
         <Stack.Screen
           name="MyPlantsList"
           component={MyPlantsList}
+          options={{ headerShown: false }}
+        />
+        {/* <Stack.Screen
+          name="ModalPopUp"
+          component={ModalPopUp}
+          options={{ headerShown: false }}
+        /> */}
+        <Stack.Screen
+          name="schedule"
+          component={schedule}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
