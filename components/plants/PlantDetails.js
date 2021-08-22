@@ -21,10 +21,7 @@ const PlantDetails = ({ navigation, route }) => {
     const newItem = { plantId: item.id };
     // console.log(newItem);
     await myPlantStore.AddItemToSchedule(newItem);
-    Alert.alert(
-      "One more plant ",
-      `${item.name} has been add to your GARDEN !`
-    );
+    Alert.alert(`${item.name} has been add in your Garden`);
     navigation.navigate("Explore");
   };
   return (
