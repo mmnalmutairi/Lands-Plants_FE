@@ -24,8 +24,10 @@ const Explore = () => {
   const [plants, setPlants] = useState(plantStore.plants);
 
   // ****************** Filtering Method ******************
+  // lowercase f
   const FilteringPlants = (categoryid) => {
     // Should filter the Plants according to the categories
+    // capital P
     const filteredplant = plantStore.plants.filter(
       (plant) => plant.categoryId === categoryid
     );
@@ -99,6 +101,7 @@ const Explore = () => {
               onPress={() => navigation.navigate("PlantDetails")}
             >
               <Image
+                // import the image on top and use it here.
                 source={require("../../assets/Mango.jpeg")}
                 resizeMode="cover"
                 style={{ width: "100%", height: "100%", borderRadius: 20 }}
@@ -156,6 +159,10 @@ const Explore = () => {
       </View>
 
       <View style={styles.footer}>
+        {/* here you have a list of categories
+      move them to a separate component
+      and use .map() to iterate over the categories
+      and not repeat your code like this */}
         <TouchableOpacity onPress={() => FilteringPlants(1)}>
           <View
             style={{

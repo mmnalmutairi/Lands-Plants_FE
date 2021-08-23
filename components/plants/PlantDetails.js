@@ -15,6 +15,10 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { observer } from "mobx-react";
 import myPlantStore from "../stores/myPlantStore";
 
+// there's no plant detail screen in the wireframes. so i don't know what these 500 lines are for.
+// but either way, no matter what, no component should be 500 lines in a project like this.
+// take some time to refactor and make it smaller. don't ignore this.
+
 const PlantDetails = ({ navigation, route }) => {
   const { item } = route.params;
   const handleAdd = async () => {

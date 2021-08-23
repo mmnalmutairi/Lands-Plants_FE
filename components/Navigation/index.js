@@ -64,6 +64,12 @@ const RootNavigator = () => {
           component={MyPlantsList}
           options={{ headerShown: false }}
         />
+        {/* I have no idea what this component is for
+        and here I see it's not being used.
+        If it's not gonna be used, remove it completely from the project.
+        Otherwise, it shouldn't be left here commented in main.
+        If it's unfinished, it should be in a branch where it's being worked on,
+        not merged onto main just yet. */}
         {/* <Stack.Screen
           name="ModalPopUp"
           component={ModalPopUp}
