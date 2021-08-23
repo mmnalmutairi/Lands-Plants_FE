@@ -11,6 +11,11 @@ import {
 import * as Animatable from "react-native-animatable";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
+/**
+ * Move your styles into styles.js and create styled components.
+ * This code is too cluttered like this.
+ */
+
 const Home = ({ navigation }) => {
   console.log(authStore.user);
   return (

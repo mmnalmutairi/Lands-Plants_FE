@@ -10,6 +10,14 @@ import {
   Animated,
 } from "react-native";
 
+/**
+ * It's very unclear how this code works and what any of it does.
+ * Names are confusing. What's ModalPoup?
+ * There's not a single comment in this file that makes it easier to understand how this works.
+ * Since this is using stuff we're not very familiar with, you should have everything
+ *  carefully commented so that it's clear and easy to understand.
+ */
+
 const ModalPoup = ({ visible, children }) => {
   const [showModal, setShowModal] = useState(visible);
   const scaleValue = useRef(new Animated.Value(0)).current;

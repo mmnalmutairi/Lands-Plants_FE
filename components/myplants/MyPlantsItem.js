@@ -48,8 +48,7 @@ const MyPlantsItem = ({ item }) => {
                 fontWeight: "bold",
               }}
             >
-              {" "}
-              {item.name}
+              {/* Remove these spaces when you see them -------> */} {item.name}
             </Text>
             <Ionicons name="chevron-forward" color="white" size={30} />
           </View>

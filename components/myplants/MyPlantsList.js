@@ -16,6 +16,8 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import plantStore from "../stores/plantStore";
 import myPlantStore from "../stores/myPlantStore";
 
+// commenting your imports is good to organize things,
+// but this comment is longer than the code it's for.
 // ****************** Import Components ******************
 import MyPlantsItem from "./MyPlantsItem";
 
