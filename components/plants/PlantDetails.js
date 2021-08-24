@@ -1,12 +1,5 @@
-import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  Alert,
-} from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Entypo from "react-native-vector-icons/Entypo";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
@@ -17,13 +10,16 @@ import myPlantStore from "../stores/myPlantStore";
 
 const PlantDetails = ({ navigation, route }) => {
   const { item } = route.params;
-  const handleAdd = async () => {
-    const newItem = { plantId: item.id };
-    // console.log(newItem);
-    await myPlantStore.AddItemToSchedule(newItem);
-    Alert.alert(`${item.name} has been add in your Garden`);
+  let date = new Date();
+  let startDate =
+    date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
+  const handleAdd = () => {
+    const newItem = { plantId: item.id, startDate };
+    // console.log(startDate);
+    myPlantStore.AddItemToSchedule(newItem);
     navigation.navigate("Explore");
   };
+
   return (
     <View style={styles.container}>
       {/* PHOTO BANNER */}

@@ -1,87 +1,87 @@
-// import format from "date-fns/format";
-// import getDay from "date-fns/getDay";
-// import parse from "date-fns/parse";
-// import startOfWeek from "date-fns/startOfWeek";
-// import React, { useState } from "react";
-// import { Calendar, dateFnsLocalizer } from "react-big-calendar";
-// import "react-big-calendar/lib/css/react-big-calendar.css";
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
+import React from "react";
+import { View, Text } from "react-native";
+const schedule = () => {
+  return (
+    <View
+      style={{ alignItems: "center", justifyContent: "center", marginTop: 100 }}
+    >
+      <Text style={{ fontSize: 30, fontWeight: "bold" }}>
+        Calendar Coming Soon
+      </Text>
+    </View>
+  );
+};
 
-// const locales = {
-//   "en-US": require("date-fns/locale/en-US"),
+export default schedule;
+
+// import React, { Component } from "react";
+// import { StyleSheet, Text, View, Button } from "react-native";
+// import * as AddCalendarEvent from "react-native-add-calendar-event";
+// import moment from "moment";
+
+// const utcDateToString = (momentInUTC) => {
+//   let s = moment.utc(momentInUTC).format("YYYY-MM-DDTHH:mm:ss.SSS[Z]");
+//   // console.warn(s);
+//   return s;
 // };
-// const localizer = dateFnsLocalizer({
-//   format,
-//   parse,
-//   startOfWeek,
-//   getDay,
-//   locales,
-// });
 
-// const events = [
-//   {
-//     title: "Big Meeting",
-//     allDay: true,
-//     start: new Date(2021, 6, 0),
-//     end: new Date(2021, 6, 0),
-//   },
-//   {
-//     title: "Vacation",
-//     start: new Date(2021, 6, 7),
-//     end: new Date(2021, 6, 10),
-//   },
-//   {
-//     title: "Conference",
-//     start: new Date(2021, 6, 20),
-//     end: new Date(2021, 6, 23),
-//   },
-// ];
+// export default class EventDemo extends Component {
+//   render() {
+//     const eventTitle = "Lunch";
+//     const nowUTC = moment.utc();
+//     return (
+//       <View style={styles.container}>
+//         <Text style={styles.welcome}>Event title: {eventTitle}</Text>
+//         <Text>date: {moment.utc(nowUTC).local().format("lll")}</Text>
 
-// function schedule() {
-//   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
-//   const [allEvents, setAllEvents] = useState(events);
-
-//   function handleAddEvent() {
-//     setAllEvents([...allEvents, newEvent]);
+//         <Button
+//           onPress={() => {
+//             EventDemo.addToCalendar(eventTitle, nowUTC);
+//           }}
+//           title="Add to calendar"
+//         />
+//       </View>
+//     );
 //   }
 
-//   return (
-//     <div className="schedule">
-//       <h1>Calendar</h1>
-//       <h2>Add New Event</h2>
-//       <div>
-//         <input
-//           type="text"
-//           placeholder="Add Title"
-//           style={{ width: "20%", marginRight: "10px" }}
-//           value={newEvent.title}
-//           onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
-//         />
-//         <DatePicker
-//           placeholderText="Start Date"
-//           style={{ marginRight: "10px" }}
-//           selected={newEvent.start}
-//           onChange={(start) => setNewEvent({ ...newEvent, start })}
-//         />
-//         <DatePicker
-//           placeholderText="End Date"
-//           selected={newEvent.end}
-//           onChange={(end) => setNewEvent({ ...newEvent, end })}
-//         />
-//         <button stlye={{ marginTop: "10px" }} onClick={handleAddEvent}>
-//           Add Event
-//         </button>
-//       </div>
-//       <Calendar
-//         localizer={localizer}
-//         events={allEvents}
-//         startAccessor="start"
-//         endAccessor="end"
-//         style={{ height: 500, margin: "50px" }}
-//       />
-//     </div>
-//   );
+//   static addToCalendar = (title, startDateUTC) => {
+//     const eventConfig = {
+//       title,
+//       startDate: utcDateToString(startDateUTC),
+//       endDate: utcDateToString(moment.utc(startDateUTC).add(1, "hours")),
+//     };
+
+//     AddCalendarEvent.presentNewCalendarEventDialog(eventConfig)
+//       .then((eventId) => {
+//         //handle success (receives event id) or dismissing the modal (receives false)
+//         if (eventId) {
+//           console.warn(eventId);
+//         } else {
+//           console.warn("dismissed");
+//         }
+//       })
+//       .catch((error) => {
+//         // handle error such as when user rejected permissions
+//         console.warn(error);
+//       });
+//   };
 // }
 
-// export default schedule;
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//     backgroundColor: "#F5FCFF",
+//   },
+//   welcome: {
+//     fontSize: 20,
+//     textAlign: "center",
+//     margin: 10,
+//   },
+//   instructions: {
+//     textAlign: "center",
+//     color: "#333333",
+//     marginBottom: 5,
+//   },
+// });
