@@ -16,7 +16,15 @@ class MyPlantStore {
   };
 
   AddItemToSchedule = async (newItem) => {
-    this.items.push(newItem);
+    const foundItem = this.items.find(
+      (item) => item.plantId === newItem.plantId
+    );
+    if (foundItem) alert("This plant is already there :)");
+    else {
+      await instance.post("/plantit", newItem);
+      this.items.push(newItem);
+      alert(`The plant has been add in your Garden :)`);
+    }
     await AsyncStorage.setItem("myPlant", JSON.stringify(this.items));
   };
 }

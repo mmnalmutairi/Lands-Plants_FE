@@ -16,8 +16,8 @@ import authStore from "../stores/authStore";
 import plantStore from "../stores/plantStore";
 
 // ************* Import Components *************
-import PlantItem from "./PlantItem";
 import PlantList from "./PlantList";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 const Explore = () => {
   const navigation = useNavigation();
@@ -50,8 +50,13 @@ const Explore = () => {
             <AntDesign name="logout" size={24} color="white" />
           </TouchableOpacity>
           <View style={styles.headerTitle}>
-            <View>
+            <View style={{ flexDirection: "row" }}>
               <Text style={styles.headerStyle}>Plants</Text>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("NotificationList")}
+              >
+                <Ionicons name="notifications" color="white" size={30} />
+              </TouchableOpacity>
             </View>
             <View style={{ marginTop: 8 }}>
               <PlantList plants={plants} navigation={navigation} />

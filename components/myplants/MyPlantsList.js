@@ -23,7 +23,10 @@ const MyPlantsList = ({ navigation }) => {
   if (plantStore.isLoading) return <Text>Loading....</Text>;
 
   const myplantlist = myPlantStore.items
-    .map((item) => ({ ...plantStore.getPlantById(item.plantId) }))
+    .map((item) => ({
+      ...plantStore.getPlantById(item.plantId),
+      startDate: item.startDate,
+    }))
     .map((item) => <MyPlantsItem item={item} key={item.id} />);
   // console.log(myplantlist);
   return (
