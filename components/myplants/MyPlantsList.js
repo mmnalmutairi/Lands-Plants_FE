@@ -18,16 +18,24 @@ import myPlantStore from "../stores/myPlantStore";
 
 // ****************** Import Components ******************
 import MyPlantsItem from "./MyPlantsItem";
+import authStore from "../stores/authStore";
 
 const MyPlantsList = ({ navigation }) => {
   if (plantStore.isLoading) return <Text>Loading....</Text>;
 
-  const myplantlist = myPlantStore.items
+  const myPlantListFiltered = myPlantStore.items.filter(
+    (item) => item.userId !== authStore.user.id
+  );
+  console.log(myPlantListFiltered);
+  const myplantlist = myPlantListFiltered
     .map((item) => ({
       ...plantStore.getPlantById(item.plantId),
       startDate: item.startDate,
     }))
-    .map((item) => <MyPlantsItem item={item} key={item.id} />);
+    .map((item) => (
+      <MyPlantsItem item={item} key={item.id} navigation={navigation} />
+    ));
+
   // console.log(myplantlist);
   return (
     <View style={styles.container}>

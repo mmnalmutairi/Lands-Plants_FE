@@ -3,7 +3,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { makeAutoObservable } from "mobx";
 import instance from "./instance";
 import decode from "jwt-decode";
-
 class AuthStore {
   user = null;
 

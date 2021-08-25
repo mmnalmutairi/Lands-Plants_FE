@@ -8,10 +8,13 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  Dimensions,
+  ImageBackground,
 } from "react-native";
-import * as Animatable from "react-native-animatable";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
+const { height, width } = Dimensions.get("screen");
 const Signin = ({ navigation }) => {
   const [user, setUser] = useState({
     username: "",
@@ -26,54 +29,64 @@ const Signin = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
-      <View style={styles.header}>
-        <Text style={styles.text_header}>Welcome !</Text>
-      </View>
-
-      <Animatable.View animation="fadeInUpBig" style={styles.footer}>
-        <Text style={styles.text_footer}>USERNAME</Text>
-        <View style={styles.action}>
-          <FontAwesome name="user-o" color="#43aa8b" size={20} />
-          <TextInput
-            placeholder="Your Username..."
-            style={styles.textInput}
-            autoCapitalize="none"
-            onChangeText={(username) => setUser({ ...user, username })}
-          />
+      <ImageBackground
+        source={require("../../assets/wp4323968.png")}
+        style={{ width: width, height: height }}
+      >
+        <View style={styles.darkLayer}></View>
+        <View style={styles.iconLogo}>
+          <FontAwesome5 name="seedling" color="white" size={100} />
         </View>
-        <Text style={[styles.text_footer, { marginTop: 35 }]}>PASSWORD</Text>
-        <View style={styles.action}>
-          <FontAwesome name="lock" color="#43aa8b" size={20} />
-          <TextInput
-            placeholder="Your Password..."
-            style={styles.textInput}
-            autoCapitalize="none"
-            secureTextEntry={true}
-            onChangeText={(password) => setUser({ ...user, password })}
-          />
+        <View style={styles.title}>
+          <Text style={styles.titleText}> Welcome Back !</Text>
         </View>
-        <TouchableOpacity onPress={handleSubmit}>
-          <View style={styles.button}>
-            <Text style={styles.textSign}>Sign In</Text>
+        <View style={styles.tip}>
+          <Text style={styles.tipText}>Sign in to start your garden </Text>
+        </View>
+        <View style={styles.inputArea}>
+          <View style={styles.textInput}>
+            <View style={styles.icon}>
+              <FontAwesome name="user-o" color="gray" size={20} />
+            </View>
+            <TextInput
+              placeholder="Your Username..."
+              style={styles.input}
+              autoCapitalize="none"
+              onChangeText={(username) => setUser({ ...user, username })}
+            />
           </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-          <View
-            style={[
-              styles.button,
-              {
-                borderColor: "#43aa8b",
-                borderWidth: 1,
-                marginTop: 15,
-                backgroundColor: "white",
-              },
-            ]}
+          {/* **************** PASSWORD **************** */}
+          <View style={{ paddingTop: 18 }} />
+          <View style={styles.textInput}>
+            <View style={styles.icon}>
+              <FontAwesome name="lock" color="gray" size={20} />
+            </View>
+            <TextInput
+              placeholder="Your Password..."
+              style={styles.input}
+              autoCapitalize="none"
+              secureTextEntry={true}
+              onChangeText={(password) => setUser({ ...user, password })}
+            />
+          </View>
+          <TouchableOpacity
+            style={{
+              marginTop: 37,
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "rgb(60, 179, 113)",
+              width: 370,
+              height: 48,
+              borderRadius: 8,
+            }}
+            onPress={handleSubmit}
           >
-            <Text style={[styles.textSign, { color: "#43aa8b" }]}>Sign Up</Text>
-          </View>
-        </TouchableOpacity>
-      </Animatable.View>
+            <Text style={{ color: "white", fontSize: 20, fontWeight: "bold" }}>
+              Sign in
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
     </View>
   );
 };
@@ -81,58 +94,66 @@ const Signin = ({ navigation }) => {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#43aa8b",
-  },
-  header: {
-    flex: 2,
-    justifyContent: "flex-end",
-    paddingHorizontal: 20,
-    paddingBottom: 50,
-  },
-  footer: {
-    flex: 3,
     backgroundColor: "white",
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    paddingVertical: 30,
-    paddingHorizontal: 20,
   },
-  text_header: {
-    color: "white",
+  darkLayer: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: "#000000",
+    opacity: 0.4,
+  },
+  iconLogo: {
+    marginTop: 180,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  title: {
+    marginTop: 59,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  titleText: {
+    color: "#FFFFFF",
     fontWeight: "bold",
     fontSize: 30,
   },
-  text_footer: {
-    color: "#43aa8b",
-    fontSize: 18,
-    fontWeight: "700",
-  },
-  action: {
-    flexDirection: "row",
-    marginTop: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: "#f2f2f2",
-    paddingBottom: 5,
-  },
-  textInput: {
-    flex: 1,
-    paddingLeft: 10,
-    color: "#43aa8b",
-  },
-  button: {
-    alignItems: "center",
-    marginTop: 50,
-    backgroundColor: "#43aa8b",
-    width: "100%",
-    height: 50,
+  tip: {
+    marginLeft: 70,
+    marginRight: 70,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 10,
   },
-  textSign: {
-    fontSize: 18,
+  tipText: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    paddingTop: 5,
+  },
+  textInput: {
+    width: width - 60,
+    height: 48,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 8,
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  input: {
+    backgroundColor: "#FFFFFF",
+    borderColor: "#FFFFFF",
     fontWeight: "bold",
-    color: "white",
+    fontSize: 15,
+    paddingLeft: 15,
+  },
+  icon: {
+    paddingLeft: 20,
+  },
+  inputArea: {
+    marginTop: 80,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

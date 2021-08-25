@@ -1,11 +1,17 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-
-const MyPlantsItem = ({ item }) => {
+import { observer } from "mobx-react";
+import plantStore from "../stores/plantStore";
+const MyPlantsItem = ({ item, navigation }) => {
+  // HandleTodo = () => {
+  //   if (plantStore.plants.id === 1) {
+  //     navigation.navigate("Todo", { item: item });
+  //   }
+  // };
   //   console.log(item);
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate("Todo")}>
       <View
         style={{
           flex: 2,
@@ -48,7 +54,6 @@ const MyPlantsItem = ({ item }) => {
                 fontWeight: "bold",
               }}
             >
-              {" "}
               {item.name}
             </Text>
             <Ionicons name="chevron-forward" color="white" size={30} />
@@ -58,4 +63,4 @@ const MyPlantsItem = ({ item }) => {
     </TouchableOpacity>
   );
 };
-export default MyPlantsItem;
+export default observer(MyPlantsItem);

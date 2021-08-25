@@ -7,94 +7,133 @@ import {
   StatusBar,
   Dimensions,
   TouchableOpacity,
+  Image,
 } from "react-native";
-import * as Animatable from "react-native-animatable";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-
+import Swiper from "react-native-swiper";
+const { height, width } = Dimensions.get("screen");
 const Home = ({ navigation }) => {
   console.log(authStore.user);
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
-      <View style={styles.header}>
-        <Animatable.Image
-          animation="bounceIn"
-          duration={1500}
-          source={require("../assets/icon-veggies.png")}
-          style={styles.logo}
-          resizeMode={"stretch"}
-        />
+      <Swiper autoplay={true}>
+        <View style={styles.slide}>
+          <Image
+            source={require("../assets/Wallpaper1.jpeg")}
+            style={styles.image}
+          />
+        </View>
+        <View style={styles.slide}>
+          <Image
+            source={require("../assets/Wallpaper4.jpeg")}
+            style={styles.image}
+          />
+        </View>
+        <View style={styles.slide}>
+          <Image
+            source={require("../assets/Wallpaper3.jpeg")}
+            style={styles.image}
+          />
+        </View>
+      </Swiper>
+      <View style={styles.textContainer}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>
+            Weeds Are Flowers too, Once you get to know them !
+          </Text>
+        </View>
       </View>
-      <Animatable.View animation="fadeInUpBig" style={styles.footer}>
-        <Text style={styles.title}>
-          Weeds Are Flowers too, Once you get to know them !
-        </Text>
-        <Text style={styles.text}>Sign in with account</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
-          <View style={styles.button}>
-            <View style={styles.signIn}>
-              <Text style={styles.textSign}>Get Started</Text>
-              <MaterialIcons name="navigate-next" color="white" size={20} />
-            </View>
-          </View>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.signupContainer}
+          onPress={() => navigation.navigate("Signin")}
+        >
+          <Text style={styles.signupText}>Sign in</Text>
         </TouchableOpacity>
-      </Animatable.View>
+        <TouchableOpacity
+          style={styles.signinContainer}
+          onPress={() => navigation.navigate("Signup")}
+        >
+          <Text style={styles.signinText}>Sign up</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
-const { height } = Dimensions.get("screen");
+
 const height_logo = height * 0.9 * 0.4;
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#43aa8b",
-  },
-  header: {
-    flex: 2,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  footer: {
-    flex: 1,
     backgroundColor: "white",
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    paddingVertical: 50,
-    paddingHorizontal: 30,
   },
-  logo: {
-    width: height_logo,
-    height: height_logo,
-    borderRadius: 150,
+  slide: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  image: {
+    height: height,
+    width: width,
+  },
+  textContainer: {
+    position: "absolute",
+    bottom: 270,
+    height: 120,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  titleContainer: {
+    width: 350,
+    height: 100,
+    backgroundColor: "rgba(37,37,37,0.5)",
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
-    color: "#43aa8b",
+    fontFamily: "Helvetica",
     fontWeight: "bold",
-    fontSize: 30,
+    fontSize: 25,
+    color: "#FFFFFF",
   },
-  text: {
-    color: "gray",
-    marginTop: 5,
-  },
-  button: {
-    alignItems: "flex-start",
-    marginTop: 30,
-    marginLeft: 200,
-    backgroundColor: "#43aa8b",
-    borderRadius: 50,
-    width: 150,
-  },
-  signIn: {
-    width: 150,
-    height: 40,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 50,
+  buttonContainer: {
+    position: "absolute",
     flexDirection: "row",
+    bottom: 70,
+    width: 370,
+    height: 60,
+    marginLeft: 20,
+    alignItems: "center",
+    justifyContent: "space-between",
   },
-  textSign: {
-    color: "white",
+  signupContainer: {
+    width: 180,
+    height: 60,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  signupText: {
+    fontFamily: "Helvetica",
     fontWeight: "bold",
+    fontSize: 20,
+    color: "#43aa8b",
+  },
+  signinContainer: {
+    width: 180,
+    height: 60,
+    borderColor: "#FFFFFF",
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 2,
+  },
+  signinText: {
+    fontFamily: "Helvetica",
+    fontWeight: "bold",
+    fontSize: 20,
+    color: "white",
   },
 });
 export default Home;

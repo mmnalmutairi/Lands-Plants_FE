@@ -18,12 +18,12 @@ import plantStore from "../stores/plantStore";
 // ************* Import Components *************
 import PlantList from "./PlantList";
 import Ionicons from "react-native-vector-icons/Ionicons";
-
+import SeasonList from "../season/SeasonList";
 const Explore = () => {
   const navigation = useNavigation();
   const [plants, setPlants] = useState(plantStore.plants);
 
-  // ****************** Filtering Method ******************
+  // ****************** Handle Tab Method ******************
   const FilteringPlants = (categoryid) => {
     // Should filter the Plants according to the categories
     const filteredplant = plantStore.plants.filter(
@@ -36,6 +36,10 @@ const Explore = () => {
   const handlePress = async () => {
     await authStore.signout();
     navigation.navigate("Home");
+  };
+
+  const handleUserPlant = () => {
+    navigation.navigate("MyPlantsList");
   };
 
   return (
@@ -64,102 +68,7 @@ const Explore = () => {
           </View>
         </View>
       </View>
-      <View style={styles.seasonArea}>
-        {/* What to plant these days */}
-        <View style={styles.seasonAreaContainer}>
-          <Text style={styles.seasonAreaText}> What Can You Plant Today </Text>
-        </View>
-        <View style={{ flexDirection: "row", height: "88%", marginTop: 8 }}>
-          <View style={{ flex: 1 }}>
-            <TouchableOpacity
-              style={{ flex: 1, marginLeft: 5 }}
-              onPress={() => navigation.navigate("PlantDetails")}
-            >
-              <Image
-                source={require("../../assets/Peach.jpeg")}
-                resizeMode="cover"
-                style={{ width: "100%", height: "100%", borderRadius: 20 }}
-              />
-              <View
-                style={{
-                  position: "absolute",
-                  bottom: "19%",
-                  right: 0,
-                  backgroundColor: "white",
-                  paddingHorizontal: 12,
-                  borderTopLeftRadius: 10,
-                  borderBottomLeftRadius: 10,
-                }}
-              >
-                <Text
-                  style={{ color: "#00996D", fontSize: 20, fontWeight: "bold" }}
-                >
-                  Peach
-                </Text>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={{ flex: 1, marginTop: 10, marginLeft: 5 }}
-              onPress={() => navigation.navigate("PlantDetails")}
-            >
-              <Image
-                source={require("../../assets/Mango.jpeg")}
-                resizeMode="cover"
-                style={{ width: "100%", height: "100%", borderRadius: 20 }}
-              />
-              <View
-                style={{
-                  position: "absolute",
-                  bottom: "19%",
-                  right: 0,
-                  backgroundColor: "white",
-                  paddingHorizontal: 12,
-                  borderTopLeftRadius: 10,
-                  borderBottomLeftRadius: 10,
-                }}
-              >
-                <Text
-                  style={{ color: "#00996D", fontSize: 20, fontWeight: "bold" }}
-                >
-                  Mango
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-
-          <View style={{ flex: 1.3 }}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("PlantDetails")}
-              style={{ flex: 1, marginLeft: 10, marginRight: 3 }}
-            >
-              <Image
-                source={require("../../assets/Palm.jpeg")}
-                resizeMode="cover"
-                style={{ width: "100%", height: "100%", borderRadius: 20 }}
-              />
-              <View
-                style={{
-                  position: "absolute",
-                  bottom: "19%",
-                  right: 0,
-                  backgroundColor: "white",
-                  paddingHorizontal: 12,
-                  borderTopLeftRadius: 10,
-                  borderBottomLeftRadius: 10,
-                }}
-              >
-                <Text
-                  style={{ color: "#00996D", fontSize: 20, fontWeight: "bold" }}
-                >
-                  Palm
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </View>
-
+      <SeasonList navigation={navigation} />
       <View style={styles.footer}>
         <TouchableOpacity onPress={() => FilteringPlants(1)}>
           <View
@@ -211,7 +120,7 @@ const Explore = () => {
             </Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("MyPlantsList")}>
+        <TouchableOpacity onPress={handleUserPlant}>
           <View
             style={{
               alignItems: "center",
@@ -324,24 +233,6 @@ var styles = StyleSheet.create({
     color: "white",
     fontSize: 22,
     fontWeight: "bold",
-  },
-  seasonArea: {
-    height: "45%",
-    backgroundColor: "#edf2f4",
-    borderTopLeftRadius: 50,
-    borderTopRightRadius: 50,
-  },
-  seasonAreaContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: 10,
-  },
-  seasonAreaText: {
-    color: "#00996D",
-    fontSize: 20,
-    fontWeight: "bold",
-    marginLeft: 10,
   },
 });
 export default Explore;
