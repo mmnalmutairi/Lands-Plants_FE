@@ -13,6 +13,7 @@ const PlantDetails = ({ navigation, route }) => {
   let date = new Date();
   let startDate =
     date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
+
   const handleAdd = () => {
     const newItem = { plantId: item.id, startDate };
     // console.log(startDate);

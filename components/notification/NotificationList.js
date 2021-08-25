@@ -13,32 +13,29 @@ import NotificationItem from "./NotificationItem";
 const NotificationList = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={require("../../assets/greenWallpaper.jpeg")}
+      {/* <ImageBackground
+        source={require("../../assets/Mango.jpeg")}
         style={styles.wallpaper}
+      > */}
+      <TouchableOpacity
+        style={styles.backIcon}
+        onPress={() => navigation.navigate("Explore")}
       >
-        <TouchableOpacity
-          style={styles.backIcon}
-          // onPress={() => navigation.navigate("Explore")}
-        >
-          <Ionicons name="chevron-back" color="white" size={30} />
-        </TouchableOpacity>
-        <Text style={styles.header}>Notification Center</Text>
-        <TouchableOpacity onPress={navigation.navigate("Explore")}>
-          <Image
-            source={require("../../assets/ios-close-circle.png")}
-            style={styles.closeIcon}
-          />
-        </TouchableOpacity>
-        <ScrollView style={styles.scrollView}>
-          <NotificationItem />
-          <NotificationItem />
-          <NotificationItem />
-          <NotificationItem />
-          <NotificationItem />
-          <NotificationItem />
-        </ScrollView>
-      </ImageBackground>
+        <Ionicons name="chevron-back" color="white" size={30} />
+      </TouchableOpacity>
+      <Text style={styles.header}>Notification Center</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("Explore")}>
+        <Image
+          source={require("../../assets/ios-close-circle.png")}
+          style={styles.closeIcon}
+        />
+      </TouchableOpacity>
+      <ScrollView style={styles.scrollView}>
+        <NotificationItem />
+        <NotificationItem />
+        <NotificationItem />
+        <NotificationItem />
+      </ScrollView>
     </View>
   );
 };

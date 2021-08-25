@@ -10,6 +10,7 @@ import MyPlantsList from "../myplants/MyPlantsList";
 import Calendar1 from "../calendar/Calendar";
 import NotificationList from "../notification/NotificationList";
 import schedule from "../plants/schedule";
+import Todo from "../events/Todo";
 const Stack = createStackNavigator();
 
 const RootNavigator = () => {
@@ -72,6 +73,11 @@ const RootNavigator = () => {
         <Stack.Screen
           name="schedule"
           component={schedule}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Todo"
+          component={Todo}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
